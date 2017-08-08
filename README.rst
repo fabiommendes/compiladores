@@ -5,6 +5,7 @@ Este é o Git da disciplina Fundamentos de Compiladores. Aqui será compartilhad
 o material produzido em sala de aula assim como tarefas, wiki e discussões.
 
 Ementa:
+
 1. Autômatos
 2. Gramáticas
 3. Analisador léxico
