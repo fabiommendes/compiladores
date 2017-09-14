@@ -1,0 +1,698 @@
+# FILE:         cxx.cfg
+# PURPOSE:      The Grammar for ARM C++ with _opt factored out,
+# LANGUAGE:     cxx
+# TITLE:        Cfg
+# TARGET:       C++
+#
+# TRANSCRIBED:  Pellegrino   -- 93.04.05 -- scanned from ARM
+# MODIFIED:     {0} McKeeman -- 93.04.05 -- original edit
+#
+#Input format for cxx.cfg:
+#
+#  1) comments must have a '#' in column 1, 
+#     or be an entirely empty line
+#
+#  2) The format of a rule is:
+#       lhs
+#           rhs1
+#           rhs2
+#           ...
+#           rhsN
+#
+#     The left hand side must start with a non-blank in column 1.
+#
+#     The right hand side(s) must start with a blank in column 1.
+#     The r.h.s. must be on one line.
+#     Blanks must be used to separate tokens in the r.h.s.
+#
+#  3) An empty rhs is specified with the predefined keyword:
+#        _E_M_P_T_Y_R_U_L_E_
+#     as the only token on the line.
+#
+#[begin example]
+#
+# ,---- column 1
+# |
+# v
+#
+# # rule xxx
+# xxx
+#     yyy + yyy
+#     zzz xxx
+#
+# # rule yyy (1st alternative is empty)
+# yyy
+#     _E_M_P_T_Y_R_U_L_E_
+#     yyy - xxx
+#
+# # rule zzz (empty)
+# zzz
+#     _E_M_P_T_Y_R_U_L_E_
+#
+#[end example]
+# 
+#--
+
+class-name
+    identifier
+
+enum-name
+    identifier
+
+typedef-name
+    identifier
+
+# r.17.2 Expressions
+
+expression
+    assignment-expression
+    expression , assignment-expression
+
+assignment-expression
+    conditional-expression
+    unary-expression  assignment-operator assignment-expression
+
+assignment-operator
+    =
+    *= 
+    /= 
+    %= 
+    += 
+    -= 
+    <<= 
+    >>= 
+    &= 
+    ^= 
+    |= 
+
+conditional-expression
+    logical-OR-expression
+    logical-OR-expression ? expression : conditional-expression
+
+logical-OR-expression
+    logical-AND-expression
+    logical-OR-expression || logical-AND-expression
+
+logical-AND-expression
+    inclusive-OR-expression
+    logical-AND-expression && inclusive-OR-expression
+
+inclusive-OR-expression
+    exclusive-OR-expression
+    inclusive-OR-expression | exclusive-OR-expression
+
+exclusive-OR-expression
+    AND-expression
+    exclusive-OR-expression ^ AND-expression
+
+AND-expression
+    equality-expression
+    AND-expression & equality-expression
+
+equality-expression
+    relational-expression
+    equality-expression == relational-expression
+    equality-expression != relational-expression
+
+relationa1-expression
+    shift-expression
+    relational-expression <  shift-expression
+    relational-expression >  shift-expression
+    relational-expression <= shift-expression
+    relational-expression >= shift-expression
+
+shift-expression
+    additive-expression
+    shift-expression << additive-expression
+    shift-expression >> additive-expression
+
+additive-expression
+    multiplicative-expression
+    additive-expression + multiplicative-expression
+    additive-expression - multiplicative-expression
+
+multiplicative-expression
+    pm-expression
+    multiplicative-expression * pm-expression
+    multiplicative-expression / pm-expression
+    multiplicative-expression % pm-expression
+
+pm-expression
+    cast-expression
+    pm-expression .* cast-expression
+    pm-expression ->* cast-expression
+
+cast-expression
+    unary-expression
+    ( type-name ) cast-expression
+
+unary-expression
+    posfix-expression
+    ++ unary-expression
+    -- unary-expression
+    unary-operator cast-expression
+    sizeof  unary-expression
+    sizeof ( type-name )
+    allocation-expression
+    deallocation-expression
+
+unary-operator
+    *
+    &
+    +
+    -
+    !
+    ~
+
+allocation-expression
+    :: new placement new-type-name new-initializer
+    new placement new-type-name new-initializer
+    :: new new-type-name new-initializer
+    new new-type-name new-initializer
+    :: new placement new-type-name
+    new placement new-type-name
+    :: new new-type-name
+    new new-type-name
+    :: new placement ( type-name ) new-initializer
+    new placement ( type-name ) new-initializer
+    :: new ( type-name ) new-initializer
+    new ( type-name ) new-initializer
+    :: new placement ( type-name )
+    new placement ( type-name )
+    :: new ( type-name )
+    new ( type-name )
+
+placement
+    ( expression-list )
+
+new-type-name
+    type-specifier-list new-declarator
+    type-specifier-list 
+
+new-declarator
+    * cv-qualifier-list new-declarator
+    * new-declarator
+    * cv-qualifier-list
+    *
+    complete-class-name :: * cv-qualifier-list new-declarator
+    complete-class-name :: * new-declarator
+    complete-class-name :: * cv-qualifier-list
+    complete-class-name :: *
+    new-declarator [ expression ]
+    [ expression ]
+
+new-initializer
+    ( initializer-list )
+    ( )
+
+deallocation-expression
+    :: delete cast-expression
+    delete cast-expression
+    :: delete [ ] cast-expression
+    delete [ ] cast-expression
+
+postfix-expression
+    primary-expression
+    postfix-expression     [ expression ]
+    postfix-expression     ( expression-list )
+    postfix-expression     ( )
+    simple-type-name       ( expression-list )
+    simple-type-name       ( )
+    postfix-expression     . name
+    postfix-expression     -> name
+    postfix-expression     ++
+    postfix-expression     --
+
+expression-list
+    assignment-expression
+    expression-list , assignment-expression
+
+primary-expression
+    literal
+    this
+    :: identifier
+    :: operator-function-name
+    :: qualified-name
+    ( expression )
+    name
+
+name
+    identifier
+    operator-function-name
+    conversion-function-name
+    ~ class-name
+    qualified-name
+
+qualified-name
+    qualified-class-name :: name
+
+literal
+    integer-constant
+    character-constant
+    floating-constant
+    string-literal
+
+# r.17.3 Declarations
+
+declaration
+    decl-specifiers declarator-list ;
+    decl-specifiers ;
+    declarator-list ;
+    asm-declaration
+    function-definition
+    template-declaration
+    linkage-specification
+
+decl-specifier
+    storage-class-specifier
+    type-specifier
+    fct-specifier
+    friend
+    typedef
+
+decl-specifiers
+    decl-specifiers decl-specifier
+    decl-specifier
+
+storage-class-specifier
+    auto
+    register
+    static
+    extern
+
+fct-specifier
+    inline
+    virtual
+
+type-specifier
+    simple-type-name
+    class-specifier
+    enum-specifier
+    elaborated-type-specifier
+    const
+    volatile
+
+simple-type-name
+    complete-class-name
+    qualified-type-name
+    char
+    short
+    int
+    long
+    signed
+    unsigned
+    float
+    double
+    void
+
+elaborated-type-specifier
+    class-key identifier
+    class-key class-name
+    enum enum-name
+
+class-key
+    class
+    struct
+    union
+
+qualified-type-name
+    typedef-name
+    class-name :: qualified-type-name
+
+complete-class-name
+    qualified-class-name
+    :: qualified-class-name
+
+qualified-class-name
+    class-name
+    class-name :: qualified-class-name
+
+enum-specifier
+    enum identifier { enum-list }
+    enum { enum-list }
+    enum identifier { }
+    enum { }
+
+enum-list
+    enumerator
+     enum-list , enumerator
+
+enumerator
+    identifier
+    identifier = constant-expression
+
+constant-expression
+    conditional-expression
+
+linkage-specification
+    extern string-literal { declaration-list }
+    extern string-literal { }
+    extern string-literal declaration
+
+declaration-list
+    declaration
+    declaration-list declaration
+
+asm-declaration
+    asm ( string-literal ) ;
+
+# r.17.4 Declarators
+
+declarator-list
+    init-declarator
+    declarator-list , init-declarator
+
+init-declarator
+    declarator initializer
+    declarator
+
+declarator
+    dname
+    ptr-operator declarator
+    declarator ( argument-declaration-list ) cv-qualifier-list
+    declarator ( argument-declaration-list ) 
+    declarator [ constant-expressio ]
+    declarator [ ]
+    ( declarator )
+
+ptr-operator
+    * cv-qualifier-list
+    *
+    & cv-qualifier-list
+    &
+    complete-class-name :: * cv-qualifier-list
+    complete-class-name :: * 
+
+cv-qualifier-list
+    cv-qualifier cv-qualifier-list
+    cv-qualifier
+
+cv-qualifier
+    const
+    volatile
+
+dname
+    name
+    class-name
+    ~ class-name
+    typedef-name
+    qualified-type-name
+
+type-name
+    type-specifier-list abstract-declarator
+    type-specifier-list
+
+type-specifier-list
+    type-specifier type-specifier-list
+    type-specifier
+
+abstract-declarator
+    ptr-operator abstract-declarator
+    ptr-operator
+    abstract-declarator ( argument-declaration-list ) cv-qualifier-list
+    ( argument-declaration-list ) cv-qualifier-list
+    abstract-declarator ( argument-declaration-list )
+    ( argument-declaration-list )
+    abstract-declarator [ constant-expression ]
+    [ constant-expression ]
+    abstract-declarator [ ]
+    [ ]
+    ( abstract-declarator )
+
+argument-declaration-list
+    arg-declaration-list ...
+    ...
+    
+    arg-declaration-list , ...
+
+arg-declaration-list
+    argument-declaration
+    arg-declaration-list , argument-declaration
+
+argument-declaration
+    decl-specifiers declarator
+    decl-specifiers declarator = expression
+    decl-specifiers abstract-declarator
+    decl-specifiers
+    decl-specifiers abstract-declarator = expression
+    decl-specifiers = expression
+
+function-definition
+    decl-specifiers declarator ctor-initializer fct-body
+    declarator ctor-initializer fct-body
+    decl-specifiers declarator fct-body
+    declarator fct-body
+
+fct-body
+    compound-statement
+
+initializer
+    = assignment-expression
+    = { initializer-list }
+    = { initializer-list , }
+    ( expression-list )
+
+initializer-list
+    assignment-expression
+    initializer-list , assignment-expression
+    { initializer-list }
+    { initializer-list , }
+
+# r.17.5 Class Declarations
+
+class-specifier
+    class-head { member-list }
+    class-head { }
+
+class-head
+    class-key identifier base-spec
+    class-key base-spec
+    class-key identifier
+    class-key
+    class-key class-name base-spec
+    class-key class-name
+
+member-list
+    member-declaration member-list
+    member-declaration
+    access-specifier : member-list
+    access-specifier :
+
+member-declaration
+    decl-specifiers member-declarator-list ;
+    member-declarator-list ;
+    decl-specifiers ;
+    ;
+    function-definition ;
+    function-definition
+    qualified-name ;
+
+member-declarator-list
+    member-declarator
+    member-declarator-list , member-declarator
+
+member-declarator
+    declarator pure-specifier
+    declarator
+    identifier : constant-expression
+    : constant-expression
+
+pure-specifier
+    = integer-constant
+
+base-spec
+    : base-list
+
+base-list
+    base-specifier
+    base-list , base-specifier
+
+base-specifier
+    complete-class-name
+    virtual access-specifier complete-class-name
+    virtual complete-class-name
+    access-specifier virtual complete-class-name
+    access-specifier complete-class-name
+
+access-specifier
+    private
+    protected
+    public
+
+conversion-function-name
+    operator conversion-type-name
+
+conversion-type-name
+    type-specifier-list ptr-operator
+    type-specifier-list
+
+ctor-initializer
+    : mem-initializer-list
+
+mem-initializer-list
+    mem-initializer
+    mem-initializer , mem-initializer-list
+
+mem-initializer
+    complete-class-name ( expression-list )
+    complete-class-name ( )
+    identifier ( expression-list )
+    identifier ( )
+
+operator-function-name
+    operator operator-name
+
+operator-name
+    new
+    delete
+    +
+    -
+    *
+    /
+    %
+    ^
+    &
+    |
+    ~
+    !
+    =
+    <
+    >
+    +=
+    -=
+    *=
+    /=
+    %=
+    ^=
+    &=
+    ~=
+    <<
+    >>
+    >>=
+    <<=
+    ==
+    !=
+    <=
+    >=
+    &&
+    ||
+    ++
+    --
+    ,
+    ->*
+    ->
+    ( )
+    [ ]
+
+# r.17.6 Statements
+
+statement
+    labeled-statement
+    expression-statement
+    compound-statement
+    selection-statement
+    iteration-statement
+    jump-statement
+    declaration-statement
+    try-block
+
+labeled-statement
+    identifier : statement
+    case constant-expression : statement
+    default : statement
+
+expression-statement
+    expression ;
+    ;
+
+compound-statement
+    { statement-list }
+    { }
+
+statement-list
+    statement
+    statement-list statement
+
+selection-statement
+    if ( expression ) statement
+    if ( expression ) statement else statement
+    switch ( expression ) statement
+
+iteration-statement
+    while ( expression ) statement
+    do statement while ( expression ) ;
+    for ( for-init-statement expression ; expression ) statement
+    for ( for-init-statement ; expression ) statement
+    for ( for-init-statement expression ; ) statement
+    for ( for-init-statement ; ) statement
+
+for-init-statement
+    expression-statement
+    declaration-statement
+
+jump-statement
+    break ;
+    continue ;
+    return expression ;
+    return ;
+    goto identifier ;
+
+declaration-statement
+    declaration
+
+# r.17.8 Templates
+
+template-declaration
+    template < template-argument-list > declaration
+
+template-argument-list
+    template-argument
+    template-argument-list , template-argument
+
+template-argument
+    type-argument
+    argument-declaration
+
+type-argument
+    class identifier
+
+template-class-name
+    template-name < template-arg-list >
+
+template-arg-list
+    template-arg
+    template-arg-list , template-arg
+
+template-arg
+    expression
+    type-name
+
+# r.17.9 Exception Handling
+
+try-block
+    try compound-statement handler-list
+
+handler-list
+    handler handler-list
+    handler
+
+handler
+    catch ( exception-declaration ) compound-statement
+
+exception-declaration
+    type-specifier-list declarator
+    type-specifier-list abstract-declarator
+    type-specifier-list
+    ...
+
+throw-expression
+    throw expression
+    throw
+
+exception-specification
+    throw ( type-list )
+    throw ( )
+
+type-list
+    type-name
+    type-list , type-name
