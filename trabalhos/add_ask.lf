@@ -1,0 +1,26 @@
+; soma dois numeros de 1 digito
+(do
+    ; pedimos o primeiro e segundo numeros respectivamente
+    read right read left
+
+    ; os numeros sao salvos como valores ascii, subtraímos o valor de '0' em 
+    ; ascii, que corresponde ao número 48
+    (sub 48) right (sub 48) left
+
+    ; realiza a soma e salva na segunda posicao
+    (loop
+        dec right inc left
+    )
+
+    ; desloca para o lado e incrementa 48 vezes
+    right (add 48)
+
+    ; quebra  a linha
+    right (add 10) print left
+
+    ; imprime o resultado
+    print
+
+    ; quebra a linha novamente
+    right print
+)

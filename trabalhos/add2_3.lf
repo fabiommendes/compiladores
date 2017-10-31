@@ -1,0 +1,15 @@
+(do 
+    ; salva 2 e 3 na primeira e segunda posicoes, respectivamente
+    (add 2) right (add 3) left
+
+    ; realiza a soma e salva na segunda posicao
+    (loop 
+        dec right inc left
+    )
+
+    ; desloca para o lado e incrementa 48 vezes (corresponde ao 0 em ascii) 
+    right (add 48)
+
+    ; imprime o resultado
+    print
+)

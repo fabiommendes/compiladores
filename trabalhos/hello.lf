@@ -1,0 +1,41 @@
+; LISPF_CK    => LISP + BRAINF_CK
+;   LISP      => linguagem funcional onde tudo fica dentro de uma lista!
+;   BRAINF_CK => linguagem de disfuncional que estraga o cérebro 
+;
+; Comentários começam com ponto e vírgula
+
+
+(do
+    ; o primeiro elemento da lista define a função que será executada
+    ; (os outros elementos são os argumentos)
+    
+    (def floor ()
+        (loop dec)
+    )
+
+    (def a () 
+        (do floor (add 97))
+    )
+    
+    ; lisp não utiliza vírgula para separar cada membro da lista
+    (def d () 
+        (do a inc inc inc)
+    )
+    
+    (def e () 
+        (do d inc)
+    )
+    
+    ; nossa lisp simplificada aceita apenas os tokens de símbolos, abrir 
+    ; e fechar lista e números inteiros 
+    (def h () (do e (add 3)))
+    (def l () (do h (add 4)))
+    (def o () (do l (add 3)))
+    (def r () (do o (add 3)))
+    (def w () (do r (add 5)))
+    (def sp () (do floor (add 32)))  ; ascii p/ espaço
+    (def nl () (do floor (add 10)))  ; ascii p/ nova linha
+    
+    ; nomes de símbolos podem conter letras, hífens e operadores (como +, -, etc)
+    (do-after print (h e l l o sp w o r l d nl))
+)

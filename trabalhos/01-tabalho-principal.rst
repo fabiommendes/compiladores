@@ -5,23 +5,24 @@ Esta atividade segue até o fim do semestre e consiste em realizar um projeto
 de desenvolvimento e evolução de um programa relacionado à matéria de 
 compiladores. 
 
-* As equipes são formadas por 6-8 alunos e podem ser alteradas ao longo do 
-semestre. A pontuação total atribuída ao projeto é de 30 pontos.
-* O projeto é organizado em sprints semanais.
-* Existirão pontos de controle a cada 3 ou 4 semanas onde o progresso de cada 
-equipe será avaliado e uma parte da nota será atribuída. 
-* O professor pode determinar a troca de membros alguma equipe durante os pontos
-de controle.
-* Todos os projetos são de software livre e serão gerenciado de forma 
-transparente no Github. O professor pode determinar objetivos específicos para 
-cada equipe através de "issues" no github, mas as equipes são responsáveis por
-definir prioridades ou até mesmo levantar requisitos.
-* Espera-se que as equipes implementem um mínimo de documentação e testes.
-* No final de cada ponto de controle, será atribuída uma nota para o grupo e esta
-nota será distribuída entre cada participante de acordo com uma avaliação 
-individual por parte dos outros membros.
-* No final de cada ponto de controle, cada grupo fará uma apresentação curta no
-estilo "lightining talk" (5 min) com perguntas abertas para toda a turma.
+    * As equipes são formadas por 6-8 alunos e podem ser alteradas ao longo do 
+    semestre. A pontuação total atribuída ao projeto é de 30 pontos.
+    * O projeto é organizado em sprints semanais.
+    * Existirão pontos de controle a cada 3 ou 4 semanas onde o progresso de cada 
+    equipe será avaliado e uma parte da nota será atribuída. 
+    * O professor pode determinar a troca de membros alguma equipe durante os pontos
+    de controle.
+    * Todos os projetos são de software livre e serão gerenciado de forma 
+    transparente no Github. O professor pode determinar objetivos específicos para 
+    cada equipe através de "issues" no github, mas as equipes são responsáveis por
+    definir prioridades ou até mesmo levantar requisitos.
+    * Espera-se que as equipes implementem um mínimo de documentação e testes.
+    * No final de cada ponto de controle, será atribuída uma nota para o grupo e esta
+    nota será distribuída entre cada participante de acordo com uma avaliação 
+    individual por parte dos outros membros.
+    * No final de cada ponto de controle, cada grupo fará uma apresentação curta no
+    estilo "lightining talk" (5 min) com perguntas abertas para toda a turma.
+
 
 Projetos
 ======== 
@@ -30,6 +31,7 @@ Ox
 --
 
 Implementar funcionalidades na biblioteca ox. Existem várias pendências: 
+
 * Tokenizador da linguagem Python
 * Parser da linguagem Python
 * Módulos para emissão de código em Python, C e Javascript
