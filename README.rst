@@ -59,6 +59,7 @@ Github:
 Github Classroom:
     http://github.com/fga-compiladores/ - Link de inscrição: https://classroom.github.com/a/0FZLKsXp
 
+
 Critérios de avaliação
 ======================
 
@@ -136,26 +137,31 @@ Cronograma de atividades
 | Semana | Data  |                          Aula                          |
 +========+=======+========================================================+
 | 1      | 06/03 | Início das aulas – Apresentação do curso               |
+|        |       |                                                        |
 |        |       | * Estrutura de linguagens naturais                     |
 |        |       | * Linguagens artificiais                               |
 |        |       | * Linguagens de programação                            |
 +--------+-------+--------------------------------------------------------+
 |        | 08/03 | Expressões regulares                                   |
+|        |       |                                                        |
 |        |       | * Ortografia e léxico de uma linguagem                 |
 |        |       | * Linguagens regulares                                 |
 |        |       | * Expressões regulares em Python                       |
 +--------+-------+--------------------------------------------------------+
 | 2      | 13/03 | Laboratório de regex: chatbot                          |
+|        |       |                                                        |
 |        |       | * Detecção de padrões                                  |
 |        |       | * Resposta a padrões                                   |
 |        |       | * Usos de expressões regulares e API Python            |
 +--------+-------+--------------------------------------------------------+
 |        | 15/03 | Análise léxica                                         |
+|        |       |                                                        |
 |        |       | * Tokens                                               |
 |        |       | * Implementando um analizador léxico                   |
 |        |       | * Analizador léxico no Ox                              |
 +--------+-------+--------------------------------------------------------+
 | 3      | 20/03 | Léxico de linguagens de programação                    |
+|        |       |                                                        |
 |        |       | * Exemplos em Python                                   |
 |        |       | * Definição de tokens                                  |
 |        |       | * Precedência de expressões regulares                  |
@@ -165,33 +171,39 @@ Cronograma de atividades
 |        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 | 4      | 27/03 | Análise sintática                                      |
+|        |       |                                                        |
 |        |       | * Gramática                                            |
 |        |       | * Especificação de regras gramaticais                  |
 |        |       | * Hierarquia de linguagens                             |
 |        |       | * Sintaxe vs semântica                                 |
 +--------+-------+--------------------------------------------------------+
 |        | 29/03 | Laboratório de análise sintática: Gerador de lero lero |
+|        |       |                                                        |
 |        |       | * Formalização de uma gramática                        |
 |        |       | * Produções válidas                                    |
 |        |       | * Gerador de textos aleatórios                         |
 +--------+-------+--------------------------------------------------------+
 | 5      | 03/04 | Gramáticas livres de contexto                          |
+|        |       |                                                        |
 |        |       | * Regras de produção                                   |
 |        |       | * Sintaxe do Ox                                        |
 |        |       | * Calculadora                                          |
 +--------+-------+--------------------------------------------------------+
 |        | 05/04 | Árvores sintáticas e representação de código           |
+|        |       |                                                        |
 |        |       | * S-expressions                                        |
 |        |       | * ADTs                                                 |
 |        |       | * Classes                                              |
 +--------+-------+--------------------------------------------------------+
 | 6      | 10/04 | Laboratório: Calculadora avançada                      |
+|        |       |                                                        |
 |        |       | * Operadores e expressões                              |
 |        |       | * Representação intermediária                          |
 |        |       | * Precedência                                          |
 |        |       | * Análise semântica                                    |
 +--------+-------+--------------------------------------------------------+
 |        | 12/04 | Emissão de código                                      |
+|        |       |                                                        |
 |        |       | * Representação intermediária                          |
 |        |       | * Geração de código                                    |
 |        |       | * Controle de formatação e indentação                  |
