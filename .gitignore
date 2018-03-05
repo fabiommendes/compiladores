@@ -1,3 +1,6 @@
 .vscode/
 .ipynb_checkpoints/
 local/
+__pycache__/
+*.pyc
+.cache/
