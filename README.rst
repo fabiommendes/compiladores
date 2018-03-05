@@ -210,6 +210,7 @@ Cronograma de atividades
 |        |       | * Funções auxiliares para emissão de código no Ox      |
 +--------+-------+--------------------------------------------------------+
 | 7      | 17/04 | Gramática do Python                                    |
+|        |       |                                                        |
 |        |       | * Tokenizador                                          |
 |        |       | * Arquivo de gramática                                 |
 |        |       | * Árvore sintática de um código “vivo”                 |
@@ -223,6 +224,7 @@ Cronograma de atividades
 |        |       | * Estruturas de controle                               |
 +--------+-------+--------------------------------------------------------+
 | 8      | 24/04 | Projeto: Linguagem funcional                           |
+|        |       |                                                        |
 |        |       | * Sintaxe, semântica e sistema de tipos                |
 |        |       | * Integração com o Python                              |
 |        |       | * Estruturas de controle básicas                       |
@@ -236,33 +238,39 @@ Cronograma de atividades
 |        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 |        | 03/05 | Autômatos                                              |
+|        |       |                                                        |
 |        |       | * Introdução a autômatos                               |
 |        |       | * Autômato determinístico finito                       |
 |        |       | * Autômatos para linguagens regulares                  |
 +--------+-------+--------------------------------------------------------+
 | 10     | 08/05 | Hierarquia de Chomsky                                  |
+|        |       |                                                        |
 |        |       | * Modelos de computação                                |
 |        |       | * Tipos de autômatos                                   |
 |        |       | * Hierarquia de linguagens formais                     |
 |        |       | * Máquina de Turing                                    |
 +--------+-------+--------------------------------------------------------+
 |        | 10/05 | Laboratório: JSON                                      |
+|        |       |                                                        |
 |        |       | * Gramática como autômato                              |
 |        |       | * Separação entre a análise léxica e sintática         |
 |        |       | * Implementação do JSON em Ox                          |
 +--------+-------+--------------------------------------------------------+
 | 11     | 17/05 | Cremilda: Lexer                                        |
+|        |       |                                                        |
 |        |       | * Tipos atômicos (numerais, strings, etc)              |
 |        |       | * Símbolos                                             |
 |        |       | * Operadores e delimitadores                           |
 +--------+-------+--------------------------------------------------------+
 |        | 19/05 | Cremilda: Expressões e declarações simples             |
+|        |       |                                                        |
 |        |       | * Chamada de função                                    |
 |        |       | * Tradução para Python                                 |
 |        |       | * Aninhamento                                          |
 |        |       | * Declarações                                          |
 +--------+-------+--------------------------------------------------------+
 | 12     | 22/05 | Cremilda: Estruturas condicionais simples              |
+|        |       |                                                        |
 |        |       | * Linguagem baseada em expressões                      |
 |        |       | * Palavras reservadas                                  |
 |        |       | * Operadores booleanos "curto-circuito"                |
@@ -272,6 +280,7 @@ Cronograma de atividades
 |        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 | 13     | 29/05 | Checagem de tipos                                      |
+|        |       |                                                        |
 |        |       | * Sistemas de tipos                                    |
 |        |       | * Coerções                                             |
 |        |       | * Polimorfismo                                         |
@@ -281,38 +290,45 @@ Cronograma de atividades
 |        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 | 14     | 05/06 | Cremilda: declaração de tipos                          |
+|        |       |                                                        |
 |        |       | * Aliases                                              |
 |        |       | * Union types                                          |
 |        |       | * Tuplas                                               |
 +--------+-------+--------------------------------------------------------+
 |        | 07/06 | Cremilda: Criação de tipos dinâmica                    |
+|        |       |                                                        |
 |        |       | * Classes dinâmicas                                    |
 |        |       | * Dicionário de tipos                                  |
 |        |       | * Tipos na biblioteca Sidekick                         |
 +--------+-------+--------------------------------------------------------+
 | 15     | 12/06 | Cremilda: declaração de módulos                        |
+|        |       |                                                        |
 |        |       | * Símbolos públicos                                    |
 |        |       | * Imports                                              |
 |        |       | * Integração com o Python                              |
 +--------+-------+--------------------------------------------------------+
 |        | 14/06 | Cremilda: runtime                                      |
+|        |       |                                                        |
 |        |       | * Tipos e funções nativas                              |
 |        |       | * Módulos padrão                                       |
 |        |       | * Compilação para Python                               |
 +--------+-------+--------------------------------------------------------+
 | 16     | 19/06 | Máquinas virtuais                                      |
+|        |       |                                                        |
 |        |       | * Objetivos de compilação                              |
 |        |       | * Máquina virtual Python                               |
 |        |       | * Leitura de Bytcodes                                  |
 |        |       | * Manipulação de Bytcodes                              |
 +--------+-------+--------------------------------------------------------+
 |        | 21/06 | Cremilda: blocos let                                   |
+|        |       |                                                        |
 |        |       | * Atribuição de variáveis                              |
 |        |       | * Controle de escopo                                   |
 |        |       | * Forma SSA                                            |
 |        |       | * Descontrutores                                       |
 +--------+-------+--------------------------------------------------------+
 | 17     | 26/06 | Cremilda: blocos case                                  |
+|        |       |                                                        |
 |        |       | * Despacho por tipo e sub-tipo                         |
 |        |       | * Switch/case                                          |
 |        |       | * Desconstrutores                                      |
@@ -321,8 +337,10 @@ Cronograma de atividades
 |        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 | 18     | 03/07 | Livre                                                  |
+|        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 |        | 05/07 | Revisão de nota                                        |
+|        |       |                                                        |
 +--------+-------+--------------------------------------------------------+
 
 Obs.: O cronograma está sujeito a alterações.
