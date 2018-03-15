@@ -10,10 +10,10 @@ import re
 #
 def yell_chatbot(msg):
     "Um chatbot que simplesmente repete a entrada do usuário"
-    return msg.upper() + '!'
+    return msg.upper() + '!!!'
 
 
-def make_regex_chatbot(regex_map, fallback='desculpe, não entendi...'):
+def make_regex_chatbot(regex_map, fallback=lambda x: 'desculpe, não entendi...'):
     r"""
     Chatbot baseado em regex. Recebe um mapa entre regex e funções responsáveis
     por lidar com o padrão de regex correspondente.
@@ -36,7 +36,7 @@ def make_regex_chatbot(regex_map, fallback='desculpe, não entendi...'):
             match = regex.fullmatch(msg)
             if match:
                 return handler(match)
-        return fallback
+        return fallback(msg)
 
     return chatbot
 
@@ -74,6 +74,20 @@ def oneof(*options):
 
 if __name__ == '__main__':
     # Escolhemos o chatbot e iniciamos o loop de interação
-    chatbot = yell_chatbot
+    
+    # 1 - deixar a interrogacao e a virgula opcionais
+    # 2 - capturar qualquer mensagem que comece com oi, ou olá, ou ola 
+    # 
+    # ... - passar no teste de turing...
 
+    chatbot = make_regex_chatbot({
+        r'oi, tudo bem\?': oneof(
+            'tudo bem!', 
+            'sim, e com você?'
+        ),
+        r'qual o seu nome\?': cte('Bot-o'),
+        r'meu nome é (?P<name>\w*)\.?': (
+            lambda match: 'oi {name}'.format(**match.groupdict())
+        ),
+    })
     interact(chatbot)
