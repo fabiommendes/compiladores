@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+
+install:
+  - pip install pytest
+
+script:
+  - pytest test_basic.py
+  - pytest test_full.py
+  
