@@ -5,47 +5,8 @@ import random
 import re
 
 
-#
-# Chatbots
-#
-def yell_chatbot(msg):
-    "Um chatbot que simplesmente repete a entrada do usuário"
-    return msg.upper() + '!!!'
-
-
-def make_regex_chatbot(regex_map, fallback=lambda x: 'desculpe, não entendi...'):
-    r"""
-    Chatbot baseado em regex. Recebe um mapa entre regex e funções responsáveis
-    por lidar com o padrão de regex correspondente.
-
-    >>> chatbot = make_regex_chatbot({
-    ...     r'oi, tudo bem\?': oneof(
-    ...         'tudo bem!', 
-    ...         'sim, e com você?'
-    ...     ),
-    ...     r'qual o seu nome\?': cte('Bot-o'),
-    ...     r'meu nome é (?P<name>\w*)\.?': (
-    ...         lambda match: 'oi {name}'.format(**match.groupdict())
-    ...     ),
-    ... })
-    """
-    regex_map = {re.compile(k): v for k, v in regex_map.items()}
-
-    def chatbot(msg):
-        for regex, handler in regex_map.items():
-            match = regex.fullmatch(msg)
-            if match:
-                return handler(match)
-        return fallback(msg)
-
-    return chatbot
-
-
-#
-# Loop principal de interação
-#
 def interact(chatbot):
-    "Chama o chatbot em loop"
+    """Chama o chatbot em loop"""
 
     while True:
         try:
@@ -59,6 +20,37 @@ def interact(chatbot):
                 break
 
         print(chatbot(msg), end='\n\n')
+
+#
+# Chatbots
+#
+def yell_chatbot(msg):
+    """Um chatbot que simplesmente repete a entrada do usuário gritando."""
+    return msg.upper() + '!!!'
+
+
+def make_regex_chatbot(regex_map, fallback=lambda x: 'desculpe, não entendi...'):
+    r"""
+    Chatbot baseado em regex. Recebe um mapa entre regex e funções responsáveis
+    por lidar com o padrão de regex correspondente.
+
+    >>> chatbot = make_regex_chatbot({
+    ...     r'(oi,? )?tudo (bem|ok)\?': oneof('tudo bem!', 'sim, e com você?'),
+    ...     r'qual (e |eh |é )?o seu nome\?': cte('Bot-o'),
+    ...     r'meu nome é (?P<name>\w*)\.?': (lambda match: 
+    ...                                      'oi {name}'.format(**match.groupdict())),
+    ... })
+    """
+    regex_map = {re.compile(k): v for k, v in regex_map.items()}
+
+    def chatbot(msg):
+        for regex, handler in regex_map.items():
+            match = regex.fullmatch(msg)
+            if match:
+                return handler(match)
+        return fallback(msg)
+
+    return chatbot
 
 
 #
@@ -81,13 +73,9 @@ if __name__ == '__main__':
     # ... - passar no teste de turing...
 
     chatbot = make_regex_chatbot({
-        r'oi, tudo bem\?': oneof(
-            'tudo bem!', 
-            'sim, e com você?'
-        ),
-        r'qual o seu nome\?': cte('Bot-o'),
-        r'meu nome é (?P<name>\w*)\.?': (
-            lambda match: 'oi {name}'.format(**match.groupdict())
-        ),
+       r'(oi,? )?tudo (bem|ok)\?': oneof('tudo bem!', 'sim, e com você?'),
+       r'qual (e |eh |é )?o seu nome\?': cte('Bot-o'),
+       r'meu nome é (?P<name>\w*)\.?': (lambda m: 
+                                        'oi {name}'.format(**m.groupdict())),
     })
     interact(chatbot)
