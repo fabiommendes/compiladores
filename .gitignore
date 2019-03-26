@@ -3,4 +3,4 @@
 local/
 __pycache__/
 *.pyc
-.cache/
+.cache/.nbgrader.log

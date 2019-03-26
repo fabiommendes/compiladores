@@ -65,9 +65,17 @@ Critérios de avaliação
 
 Cada aluno será avaliado com uma nota numérica onde a conversão entre a pontuação e a menção final é feita da forma usual: 9,0pts+: SS, 7,0pts+: MS, 5,0pts+: MM, 3,0pts+: MI e < 3,0 pts II. A distribuição de pontos ao longo do curso segue a fórmula::
 
-    NotaFinal = 0.20 * P1 + 0.20 * P2 + 0.20 * MI + 0.40 * MT
++------------------------+-----+
+| Prova 1                | 20% |
++------------------------+-----+
+| Prova 2                | 20% |
++------------------------+-----+
+| Exercícios individuais | 20% |
++------------------------+-----+
+| Testes e trabalhos     | 40% |
++------------------------+-----+
 
-onde P1 e P2 consistem nas nota das provas 1 e 2; MI representa a média dos exercícios e trabalhos individuais (feitos em casa); MT representa a média dos testes realizados em sala de aula. Os testes podem ser resolvidos em grupos de tamanho e composição variávies (inclusive individuais) e consistem em tarefas esporádicas realizadas durante a aula. A data dos testes e o respectivo método de avaliação serão divulgados com uma aula de antecedência.
+As datas das provas estão indicadas no plano de ensino. Os testes serão resolvidos em grupos de tamanho e composição variávies (inclusive individuais) e consistem em tarefas esporádicas realizadas durante a aula. A data dos testes e o respectivo método de avaliação serão divulgados com uma aula de antecedência.
 
 
 Desafios
