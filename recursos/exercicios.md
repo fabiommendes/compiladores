@@ -3,13 +3,13 @@
 1) Considere linguagens com um alfabeto formado por 0's e 1's. Excreva uma expressão
 regular para as seguintes situações
 
-a) Strings que contêm exatamente 2 dígitos 1.
-b) Strings que contêm até 2 dígitos 1.
-c) Strings que contêm um número par de dígitos 1.
-d) Strings que contêm um número ímpar de dígitos 1.
-e) Strings que correspondem a números binários ímpares
-f) Strings que correspondem a números binários que são potências de 2
-g) Strings que correspondem a números binários diferentes de zero
+1. Strings que contêm exatamente 2 dígitos 1.
+2. Strings que contêm até 2 dígitos 1.
+3. Strings que contêm um número par de dígitos 1.
+4. Strings que contêm um número ímpar de dígitos 1.
+5. Strings que correspondem a números binários ímpares
+6. Strings que correspondem a números binários que são potências de 2
+7. Strings que correspondem a números binários diferentes de zero
 
 Em cada caso, desenhe um diagrama que descreve o autômato correspondente a esta
 expressão regular.
@@ -18,11 +18,11 @@ expressão regular.
 2) Dado a tabela de transição para um autômato de três estados {0, 1, 2} e que atua sobre
 o alfabeto {a, b}, determine o diagrama de transições e a linguagem regular associada.
 
- S | a | b |
----+---+---+
- 0 | 1 | 2 |
- 1 | 2 | 1 |
- 2 | 2 | 1 |
+| S | a | b |
+|---|---|---|
+| 0 | 1 | 2 |
+| 1 | 2 | 1 |
+| 2 | 2 | 1 |
  
  
 # Gramáticas livres de contexto
