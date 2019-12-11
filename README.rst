@@ -2,7 +2,7 @@
 Avisos!
 =======
 
-* `Avaliação 360 do trabalho final <https://docs.google.com/forms/d/e/1FAIpQLSfG9lAnV84mazFPgqOi9oxvBMiaE9CWhfWrP-_fnlym8sbnaA/viewform?usp=sf_link>`_
+* `Avaliação 360 e envio do trabalho final <https://docs.google.com/forms/d/e/1FAIpQLSfG9lAnV84mazFPgqOi9oxvBMiaE9CWhfWrP-_fnlym8sbnaA/viewform?usp=sf_link>`_
 * `Envio do trabalho de lispy <https://docs.google.com/forms/d/e/1FAIpQLSdSkhlcFpR2hRlagztN7hqRC5l1l4mz7rKhM92hqc4h9xgxBw/viewform?usp=sf_link>`_
 
 ==============
