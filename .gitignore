@@ -7,3 +7,4 @@ __pycache__/
 .nbgrader.log
 *.scm~
 **/*-respostas.*
+notas.xls
